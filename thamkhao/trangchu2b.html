@@ -1,0 +1,45 @@
+
+
+<html>
+<head>
+  <title>Registration form</title>
+  <meta charset="utf-8" >
+  <title>Dethi2-Bai1</title>
+  <meta name="author" content="Vu Duy Linh">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+  <link rel="icon" type="image/png" href="./images/html5_favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  	
+	<link rel="stylesheet" href="style2b.css">
+</head>
+
+<body>
+	<div class="container">
+		<h3 class="title-3rd">Markup, style sheet and programming language course registration form</h3>
+		<form id="form2b" action="ketquadangky2b.html">  
+			<div class="form-row">
+				<label for="fullname">Full name:</label>
+				<input class="type-text" type="text" id="fullname" name="fullname" placeholder="Your full name..." required> 
+			</div>
+			<div class="form-row">
+				<label for="email">Email: </label>
+				<input class="type-email" type="email" id="email" name="email" placeholder="Enter your email..." required>
+			</div>
+			<div class="form-row">				
+				<fieldset id="loveLanguages" class="box-languages">
+					<legend>What languages do you love to learn: </legend>
+					<label><input class="type-checkbox" name="languages" type="checkbox" value="HTML5" />HTML5</label>				
+					<label><input class="type-checkbox" name="languages" type="checkbox" value="CSS3"  />CSS3</label>
+					<label><input class="type-checkbox" name="languages" type="checkbox" value="JavaScript" />JavaScript</label>
+					<label><input class="type-checkbox" name="languages" type="checkbox" value="TypeScript" />TypeScript</label>
+					<label><input class="type-checkbox" name="languages" type="checkbox" value="VBScript" />VBScript</label>
+					<label><input class="type-checkbox" name="languages" type="checkbox" value="Other" />Other</label><br/>	
+				</fieldset>
+			</div>			
+			<div class="form-row">
+				<input class="type-submit" type="submit" value="Submit">
+			</div>
+		</form>		
+	</div>
+	<script src="./script2b.js"></script>
+</body>
+</html>

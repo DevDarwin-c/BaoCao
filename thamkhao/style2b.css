@@ -1,0 +1,76 @@
+
+
+/*/////////////// Phần định dạng mặc định có sẵn  /////////////////*/ 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 70%;
+  margin: 20px auto;
+  background-color: beige;
+  padding-top: 20px;
+  min-width: 750px;
+}
+
+.title-3rd{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+
+}
+
+.form-row {
+  width: 90%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin: 5px auto;
+  border: 1px dashed blue;
+}
+
+.type-text, .type-email{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.type-checkbox{
+	margin: 12px 5px 5px 0px;
+}
+.type-submit{
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 1px auto;
+}
+
+.type-submit:hover {
+  background-color: #45a049;
+}
+
+.box-languages > label:after{
+	content:"";
+	padding-right: 30px;
+}
+
+.container.complete {
+  border: 3px groove;
+
+}
+
+.box-languages{
+	border: none;
+}
+
+/*//////////////////// Phần phía dưới, sinh viên cần viết thêm theo yêu cầu của đề thi /////////////*/
+
