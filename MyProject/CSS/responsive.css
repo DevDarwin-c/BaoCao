@@ -1,0 +1,58 @@
+/* Đàm Trọng Nhân B1910113 */
+/* ------------responnav */
+.icon {
+    float: right;
+    display: none;
+    cursor: pointer;
+    color: white;
+}
+@media(max-width:650px){
+    /* ul{
+        display: none;
+    } */
+    .con-img{
+        width: 100px;
+        height: 200px;
+    }
+    .icon{
+       padding-right: 230px;
+       color: black;
+        
+    }
+    .icon:hover{
+        transform: translateY(-5px);
+    }
+    .slider{
+        display: none;
+    }
+    .nav--logo{
+        display: none;
+    }
+    .shopping-card{
+        display: none;
+    }
+    .tieude{
+        display: none;
+    }
+    ul.active {
+        margin: 0;
+        background-color:aqua;
+        width: 100%;
+        height: 80%;
+        position: fixed;
+        display: block;
+    }
+    .nav-list{
+        width: fit-content;
+    }
+    ul li{
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid white
+        
+    }
+    .icon{
+        display: block;
+    }
+}
+ 
