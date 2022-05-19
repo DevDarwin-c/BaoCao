@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+
+        }
+        .container{
+            width: 70%;
+            margin: 20px auto;
+            background-color: beige;
+            padding-top: 20px;
+        }
+        .underline-by-gradient{
+            position: relative;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 50px;
+        }
+        .underline-by-gradient::after{
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            width: 300px;
+            height: 5px;
+            background: blue;
+            transform: translateX(-150px);
+        }
+        .form-row{
+            width: 90%;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding:10px;
+           margin: 5px auto;
+           border: 1px dashed blue;
+        }
+        input[type=text],
+        input[type=email]{
+            width:100%;
+            padding:12px 20px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=submit],
+        input[type=reset]{
+            width:100%;
+            background-color: #4CAF50;
+            color:white;
+            padding:14px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 1px auto;    
+        }
+
+        input[type=submit]:hover, input[type=reset]:hover{
+            background-color: #45a049;
+        }
+        .form-row.success input{
+            border: 2px solid green;
+        }
+        .form-row.success .message::before{
+            color:blue;
+            content: "\2713 passed.";
+            font-weight: 900;
+            font-size: 1em;
+            visibility: visible;
+        }
+        .form-row.error input{
+            border: 2px solid red;
+        }
+        .form-row .message{
+            visibility: hidden;
+            margin: 2px 0 12px 0;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        .form-row.error .message{
+            visibility: visible;
+            color: red;
+        }
+        .container.complete{
+            border: 3px groove;
+        }
+        @keyframes animatedColors{
+            0%{
+                background-color: red;
+            }
+            20%{
+                background-color: orange;
+            }
+            40%{
+                background-color: blue;
+            }
+            60%{
+                background-color: yellow;
+            }
+            80%{
+                background-color: purple;
+            }
+            100%{
+                background-color: green;
+            }
+        }
+        .box-animation{
+            margin: 10px auto;
+            width:70%;
+            padding:10px;
+            font-size: 1.2em;
+            color: #fff;
+            text-align: center;
+            border-radius: 1em;
+            visibility: hidden;
+            animation: animatedColors 10s linear infinite alternate;
+        }
+        .box-animation.show{
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="underline-by-gradient">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus consequuntur sequi, eligendi natus corporis, ad ducimus laudantium sapiente sit illum a. Ex doloremque modi, laborum labore suscipit unde minus at.</h1>
+        <form action="ketqua.html" id="form1">
+            <div class="form-row">
+                <label for="">
+                FirstName <input type="text" id="firstname" name="firstname" placeholder="Your Firsy Name is" required>
+                </label>
+                <small class="message">error message</small>
+            </div>
+            <div class="form-row">
+                <label for="">
+                    LastName <input type="text" id="lastname" name="lastname" placeholder="Your last name is"required>
+                </label>
+                <small class="message">error message</small>
+            </div>
+            <div class="form-row">
+                <label for="">
+                    Email <input type="email" id="email" name="email" placeholder="Your email is"required>
+                </label>
+                <small class="message">error message</small>
+            </div>
+            <div class="form-row">
+                <input type="submit" value="submit">
+            </div>
+        </form>
+        <div class="box-animation"> How magical css3 is <br> The more you practice, the more you understand</div>
+    </div>  
+    <script>
+        const form1     =   document.getElementById('form1');
+        const fname     =   document.getElementById('firstname');
+        const lname     =   document.getElementById('lastname');
+        const email     =   document.getElementById('email');
+        const container =   document.querySelector('.container');
+        const anmtBox   =   document.querySelector('.box-animation');
+
+        function checkFirstname()
+        {
+            if(fname.value === '')
+            {
+                errorMessage(fname, "This field is required");
+            } else 
+            {
+                successMessage(fname);
+            }
+        }
+
+        function checkLastname()
+        {
+            if(lname.value === '')
+            {
+                errorMessage(lname, "This field is required");
+            } else 
+            {
+                successMessage(lname);
+            }
+        }
+
+        function validateEmail(email)
+        {
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            return mailformat.test(String(email).toLowerCase());
+        }
+
+        function checkEmail()
+        {
+            if (email.value === '')
+            {
+                errorMessage(email, "This field is required")
+            } else if (!validateEmail(email.value))
+                {
+                    errorMessage(email, "The email is invalid")
+                }
+            else 
+            {
+                successMessage(email);
+            }
+        }
+        
+        fname.addEventListener('blur', checkFirstname, true);
+        lname.addEventListener('blur', checkLastname, true);
+        email.addEventListener('blur', checkEmail, true);
+
+        form1.addEventListener('submit', (evt) => {
+            evt.preventDefault();
+
+            const formRows = document.querySelectorAll('.form-row');
+
+            let arrformRows = Array.from(formRows);
+            arrformRows.pop();
+            let isValid = true;
+            arrformRows.forEach(item => {
+                console.log(item.classList.contains('success'));
+                if(!item.classList.contains('success')) isValid =false;
+            });
+             if (isValid)
+             {
+                 container.classList.add('complete');
+                 alert("You have submitted sucessfully. Thank you");
+                 anmtBox.classList.add('show');
+             } else {
+                 container.classList.remove('complete');
+                 anmtBox.classList.remove('show');
+             }
+        });
+        function errorMessage(pElement, message){
+            const formRow = pElement.parentElement.parentElement;
+
+            if (formRow.classList.contains('success')) {
+                formRow.classList.remove('success');
+                formRow.classList.add('error');
+            }else {
+                formRow.classList.add('error');
+            }
+            formRow.querySelector('.message').textContent = message;
+        }
+        
+        function successMessage(pElement)
+        {
+            const formRow = pElement.parentElement.parentElement;
+
+            if(formRow.classList.contains('error'))
+            {
+                formRow.classList.remove('error');
+                formRow.classList.add('success');
+            }else{
+                formRow.classList.add('success');
+            }
+        }
+    </script>
+</body>
+</html>
